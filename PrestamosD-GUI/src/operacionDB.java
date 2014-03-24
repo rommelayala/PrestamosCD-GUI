@@ -4,78 +4,56 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
+import com.mysql.jdbc.exceptions.MySQLDataException;
+
 public class operacionDB extends javax.swing.JFrame {
 
-	private static final long serialVersionUID = 1L;
 	static ResultSet res = null;
-	static ResultSetMetaData infoTabla = null;
-
 	static Statement sentenciaSQL;
-
+	static ResultSetMetaData infoTabla = null;
+	private static Vector<CDBean> lista = new Vector<>(110);
+	private static final long serialVersionUID = 1L;		
 	private static String sqlSelect = "SELECT * from discos";
 
 	public static Vector<CDBean> getListaDiscos() {
-
-		ResultSet res0 = null;
-
-		try {
-			sentenciaSQL = ConexionDB.getConexion().createStatement();
-			res0 = sentenciaSQL.executeQuery(sqlSelect);
-			res0.beforeFirst();
-			
-			return mostrarSelect(res0);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			infoTabla = res.getMetaData();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return mostrarSelect(res0);
-	}
-
-	/* 2 muestra el contenido del resulset obtenido */
-	@SuppressWarnings("null")
-	private static Vector<CDBean> mostrarSelect(ResultSet res) {
-
 		String titulo;
 		String autor;
 		String genero;
 		String descripcion;
-		Vector<CDBean> lista = new Vector<>(110);
-		System.out.println("capacidad de vector" + lista.capacity());
-		int i = 0;
+
+		/**crea el resulset a partir de la consulta sqlselect*/
 		try {
-			while (res.next()) {
-				i++;
+			sentenciaSQL = ConexionDB.getConexion().createStatement();
+			res = sentenciaSQL.executeQuery(sqlSelect);
+			res.beforeFirst();
+			/**muestra por consola el contenido del resulset y llena el vector con esos datos*/
+			try {
+				while (res.next()) {
 
-				System.out.println("\nTitulo\tAutor\t\tGenero");
+					System.out.println("\nTitulo\tAutor\t\tGenero");
 
-				titulo = res.getString("titulo").toString();
-				autor = res.getString("autor").toString();
-				genero = res.getString("genero").toString();
-				descripcion = "";
-				System.out.println("fila" + i + " " + titulo + "\t" + autor
-						+ "\t" + genero);
-				System.out.println("-----------------------");
-				// genera disco
+					titulo = res.getString("titulo").toString();
+					autor = res.getString("autor").toString();
+					genero = res.getString("genero").toString();
+					descripcion = "";
+					System.out.println(titulo + "\t" + autor
+							+ "\t" + genero);
+					System.out.println("-----------------------");
+					// genera disco
 
-				lista.add(new CDBean(titulo, autor, genero, descripcion));
+					lista.add(new CDBean(titulo, autor, genero, descripcion));
+					}
+				} catch (SQLException e1) {
+				e1.printStackTrace();
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
 			}
-			System.out.println(lista);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return lista;
-	}
-
-	/* 3 obtiene nuevo Id de la tabla libros */
+		}
+			
+	/**codigo para uso futuro:
+	 *  3 obtiene nuevo Id de la tabla libros */
 	private static int getNuevoID(String tabla, String ID) {
 		Integer id = null;
 

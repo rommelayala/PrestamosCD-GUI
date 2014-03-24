@@ -5,11 +5,25 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 
+
+/**
+* This code was edited or generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
+* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
+* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
+*/
 public class CD extends javax.swing.JFrame {
 
 	private Vector<CDBean> CDs = new Vector<CDBean>();
 	private static final long serialVersionUID = 1L;
 	private JMenu jmnuArchivo;
+	private JMenu jmnuInformes;
 	private JMenuItem jmItemAnadirReg;
 	private JMenuItem jmItemBuscarReg;
 	private JLabel jlbTitulo;
@@ -178,6 +192,11 @@ public class CD extends javax.swing.JFrame {
 							}
 						});
 					}
+					jmnuInformes = new JMenu();
+					jMenuBar.add(jmnuInformes);
+					jmnuArchivo.setText("Archivo");
+					jmnuInformes.setMnemonic(java.awt.event.KeyEvent.VK_I);
+					jmnuInformes.setText("Informes");
 				}
 			}
 

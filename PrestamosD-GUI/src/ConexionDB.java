@@ -2,17 +2,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class ConexionDB {
-	private static Connection conDB = null;
 	private static String DBUrl="jdbc:mysql://localhost:3306/tiendaDiscos?user=root&password=root";
+	private static Connection conDB = null;
+	
 
 	// Metodo publico para establecer la cadena de conexion
 	public static void setURL(String dburl) {
 		DBUrl = dburl;
 	}
 
-	/** Devuelve un objeto del tipo Connection con la base de datos */
+	/** Devuelve un objeto del tipo Connection con la base de datos
+	 * usando singleton
+	 *  */
 	public static Connection getConexion() {
 		// Si no existe la conexion entonces se crea
 		if (conDB == null) {
