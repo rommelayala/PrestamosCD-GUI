@@ -1,4 +1,5 @@
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -10,7 +11,7 @@ import javax.swing.border.BevelBorder;
 
 public class BuscarReg extends javax.swing.JDialog {
 	private static final long serialVersionUID = 1L;
-	CD ventanaPadre;	
+	private CD ventanaPadre;	
 	private JButton jbtAceptar;
 	private JButton jbtBorrar;
 	private JScrollPane jScrollPane1;
@@ -41,18 +42,40 @@ public class BuscarReg extends javax.swing.JDialog {
 					jbtAceptar.setText("Aceptar");
 					jbtAceptar.setBounds(285, 22, 90, 26);
 					jbtAceptar.setMnemonic(java.awt.event.KeyEvent.VK_A);
+					jbtAceptar.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							jbtAceptarActionPerformed(e);
+							
+						}
+					});;
 				}
 				{
 					jbtCancelar = new JButton();
 					getContentPane().add(jbtCancelar);
 					jbtCancelar.setText("Cancelar");
 					jbtCancelar.setBounds(285, 58, 90, 26);
+					jbtCancelar.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							jbtCancelarActionPerformed(e);
+							
+						}
+					});
 				}
 				{
 					jbtBorrar = new JButton();
 					getContentPane().add(jbtBorrar);
 					jbtBorrar.setText("Borrar");
 					jbtBorrar.setBounds(285, 95, 90, 26);
+					jbtBorrar.addActionListener(new ActionListener() {
+						
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							jbtBorrarActionPerformed(e);
+							
+						}
+					});
 				}
 				{
 					jScrollPane1 = new JScrollPane();
@@ -93,12 +116,12 @@ public class BuscarReg extends javax.swing.JDialog {
 		}
 	}
 	/**
-	* 1.- metodo principal
+	* ejecutar desde la clase CD!!!
 	*/
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				 javax.swing.JFrame frame = new JFrame();
+				 javax.swing.JFrame frame = new javax.swing.JFrame();
 				BuscarReg inst = new BuscarReg(frame);
 				inst.setVisible(true);
 			}

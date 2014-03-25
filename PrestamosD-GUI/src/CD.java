@@ -29,6 +29,9 @@ public class CD extends javax.swing.JFrame {
 	private JLabel jlbTitulo;
 	private JTextArea jtaPrestamo;
 	private JTextField jtfTitulo;
+	private JMenuItem jmnuSoloNoPrestados;
+	private JMenuItem jmnuSoloPrestado;
+	private JMenuItem jmnuInformeCompleto;
 	private JTextField jtfGenero;
 	private JTextField jtfAutor;
 	private JLabel jblCreditos;
@@ -44,8 +47,7 @@ public class CD extends javax.swing.JFrame {
 
 	public CD() {
 		super();
-		initGUI();
-		
+		initGUI();	
 	}
 
 	public Vector<CDBean> getCDs() {
@@ -57,7 +59,8 @@ public class CD extends javax.swing.JFrame {
 		//CDs.add(new CDBean(titulo, autor, genero, descripcion));
 		this.CDs=item;
 	}
-
+	
+	/**Inicia ventana*/
 	private void initGUI() {
 		try {
 			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -197,6 +200,22 @@ public class CD extends javax.swing.JFrame {
 					jmnuArchivo.setText("Archivo");
 					jmnuInformes.setMnemonic(java.awt.event.KeyEvent.VK_I);
 					jmnuInformes.setText("Informes");
+					{
+						jmnuInformeCompleto = new JMenuItem();
+						jmnuInformes.add(jmnuInformeCompleto);
+						jmnuInformeCompleto.setText("Informe Completo");
+					}
+					{
+						jmnuSoloPrestado = new JMenuItem();
+						jmnuInformes.add(jmnuSoloPrestado);
+						jmnuSoloPrestado.setText("Solo prestado");
+						jmnuSoloPrestado.setBounds(113, 19, 90, 20);
+					}
+					{
+						jmnuSoloNoPrestados = new JMenuItem();
+						jmnuInformes.add(jmnuSoloNoPrestados);
+						jmnuSoloNoPrestados.setText("Solo No Prestados");
+					}
 				}
 			}
 
@@ -219,7 +238,7 @@ public class CD extends javax.swing.JFrame {
 		if (respuesta != JOptionPane.YES_OPTION) {
 			return;
 		}
-		System.exit(0);
+		System.exit(EXIT_ON_CLOSE);
 	}
 
 	private void jtfFocusGained(FocusEvent evt) {
