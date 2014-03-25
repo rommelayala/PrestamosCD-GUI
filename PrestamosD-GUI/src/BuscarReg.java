@@ -1,13 +1,10 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
-import javax.swing.border.BevelBorder;
 
 public class BuscarReg extends javax.swing.JDialog {
 	private static final long serialVersionUID = 1L;
@@ -112,6 +109,7 @@ public class BuscarReg extends javax.swing.JDialog {
 		int i=jlsListaCDs.getSelectedIndex();
 		if (i>=0) {
 			ventanaPadre.getCDs().remove(i);
+			
 			this.actualizarLista();
 		}
 	}

@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-import com.mysql.jdbc.exceptions.MySQLDataException;
-
 public class operacionDB extends javax.swing.JFrame {
 
 	static ResultSet res = null;
@@ -21,7 +19,8 @@ public class operacionDB extends javax.swing.JFrame {
 		String genero;
 		String descripcion;
 
-		/**crea el resulset a partir de la consulta sqlselect*/
+		/**crea el resulset a partir de la consulta sqlselect
+		 * muestra por consola el contenido del resulset y llena el vector con esos datos*/
 		try {
 			sentenciaSQL = ConexionDB.getConexion().createStatement();
 			res = sentenciaSQL.executeQuery(sqlSelect);
@@ -54,7 +53,7 @@ public class operacionDB extends javax.swing.JFrame {
 			
 	/**codigo para uso futuro:
 	 *  3 obtiene nuevo Id de la tabla libros */
-	private static int getNuevoID(String tabla, String ID) {
+	private static int getNumeroElementos(String tabla, String ID) {
 		Integer id = null;
 
 		try {
@@ -67,7 +66,7 @@ public class operacionDB extends javax.swing.JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return id + 1;
+		return id;
 	}
 
 	/* 4 permite insertar o actualizar la tabla por medio de un String orden */
