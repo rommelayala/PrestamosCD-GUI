@@ -1,3 +1,4 @@
+package programa;
 import java.awt.event.*;
 import java.util.Collections;
 import java.util.Vector;
@@ -28,7 +29,7 @@ public class CD extends javax.swing.JFrame {
 	private JMenuItem jmItemSalir;
 	private JSeparator jSeparator1;
 	private JMenuBar jMenuBar;
-	BuscarReg dlgBuscar;
+	private BuscarReg dlgBuscar;
 
 	/** constructor de clase CD */
 
