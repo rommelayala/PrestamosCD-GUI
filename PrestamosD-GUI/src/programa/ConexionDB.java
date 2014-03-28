@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionDB {
-	private static String DBUrl="jdbc:mysql://localhost:3306/tiendaDiscos?user=root&password=root";
+	private static String DBUrl="jdbc:mysql://localhost:3306/tiendaDiscos?user=root&password=toor";
 	private static Connection conDB = null;
 	
 

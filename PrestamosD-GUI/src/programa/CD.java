@@ -1,8 +1,11 @@
 package programa;
+
 import java.awt.event.*;
 import java.util.Collections;
 import java.util.Vector;
+
 import informe.*;
+
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 
@@ -24,7 +27,7 @@ public class CD extends javax.swing.JFrame {
 	private JTextArea jtaPrestamo;
 	private JTextField jtfTitulo;
 	private JTextField jtfGenero;
-	private JTextField jtfAutor;	
+	private JTextField jtfAutor;
 	private JSeparator jSeparator1;
 	private BuscarReg dlgBuscar;
 	private InformeJasperCompleto infCompleto;
@@ -35,20 +38,20 @@ public class CD extends javax.swing.JFrame {
 
 	public CD() {
 		super();
-		initGUI();	
+		initGUI();
 	}
 
 	public Vector<CDBean> getCDs() {
 		return CDs;
 	}
-	
-	public void setCDs(Vector<CDBean> item){
-		
-		//CDs.add(new CDBean(titulo, autor, genero, descripcion));
-		this.CDs=item;
+
+	public void setCDs(Vector<CDBean> item) {
+
+		// CDs.add(new CDBean(titulo, autor, genero, descripcion));
+		this.CDs = item;
 	}
-	
-	/**Inicia ventana*/
+
+	/** Inicia ventana */
 	private void initGUI() {
 		try {
 			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -192,7 +195,11 @@ public class CD extends javax.swing.JFrame {
 						jmnuInformeCompleto = new JMenuItem();
 						jmnuInformes.add(jmnuInformeCompleto);
 						jmnuInformeCompleto.setText("Informe Completo");
-						
+						jmnuInformeCompleto.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								generaInforme();
+							}
+						});
 					}
 					{
 						jmnuSoloPrestado = new JMenuItem();
@@ -212,6 +219,12 @@ public class CD extends javax.swing.JFrame {
 			// add your error handling code here
 			e.printStackTrace();
 		}
+	}
+
+	public void generaInforme() {
+		infCompleto= new InformeJasperCompleto();
+		infCompleto.informe();
+
 	}
 
 	private void jmItemBuscarRegActionPerformed(ActionEvent evt) {
@@ -269,9 +282,6 @@ public class CD extends javax.swing.JFrame {
 		jtaPrestamo.setText(cd.getPrestamo());
 	}
 
-	public void generaInforme(){
-		
-	}
 	/** 1.- metodo principal */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {

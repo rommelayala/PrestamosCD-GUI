@@ -7,7 +7,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class InformeJasperCompleto {
 	public void informe() {
-		String reportName = "./informes/infJasperCompleto";
+		String reportName = "infJasperCompleto";
 		JRBeanCollectionDataSource dataSource;
 		JasperReport jasperReport;
 		JasperPrint jasperPrint;
