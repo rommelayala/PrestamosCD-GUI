@@ -1,14 +1,12 @@
-package informes;
+package informe;
 import java.util.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import programa.CD;
 import programa.CDBean;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
-public class InfJasperCompleto {
-	public static void main(String[] args) {
+public class InformeJasperCompleto {
+	public void informe() {
 		String reportName = "./informes/infJasperCompleto";
 		JRBeanCollectionDataSource dataSource;
 		JasperReport jasperReport;
@@ -20,7 +18,7 @@ public class InfJasperCompleto {
 		pars.put("P_SUBTITULO", "Rommel DataBase.");
 		try {
 			// 1-Llenar el datasource con la informacion de la base de datos o
-			// de donde est�, en este caso "hardcoded"
+			// de donde est???, en este caso "hardcoded"
 			CD listaVector = new CD();
 			Collection<CDBean> lista = (listaVector.getCDs());//
 			dataSource = new JRBeanCollectionDataSource(lista);
@@ -29,8 +27,8 @@ public class InfJasperCompleto {
 			jasperReport = JasperCompileManager.compileReport(reportName
 					+ ".jrxml");
 
-			// 3-Llenamos el report con la informaci�n de la coleccion y
-			// par�metros necesarios para la consulta
+			// 3-Llenamos el report con la informaci???n de la coleccion y
+			// par???metros necesarios para la consulta
 			jasperPrint = JasperFillManager.fillReport(jasperReport, pars,
 					dataSource);
 			// 4-Exportamos el report a pdf y lo guardamos en disco

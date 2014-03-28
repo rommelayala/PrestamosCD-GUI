@@ -2,34 +2,34 @@ package programa;
 import java.awt.event.*;
 import java.util.Collections;
 import java.util.Vector;
-
+import informe.*;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 
 public class CD extends javax.swing.JFrame {
-
-	private Vector<CDBean> CDs = new Vector<CDBean>();
-	private static final long serialVersionUID = 1L;
+	private JMenuBar jMenuBar;
 	private JMenu jmnuArchivo;
 	private JMenu jmnuInformes;
 	private JMenuItem jmItemAnadirReg;
 	private JMenuItem jmItemBuscarReg;
-	private JLabel jlbTitulo;
-	private JTextArea jtaPrestamo;
-	private JTextField jtfTitulo;
 	private JMenuItem jmnuSoloNoPrestados;
 	private JMenuItem jmnuSoloPrestado;
 	private JMenuItem jmnuInformeCompleto;
-	private JTextField jtfGenero;
-	private JTextField jtfAutor;
+	private JMenuItem jmItemSalir;
+	private JLabel jlbTitulo;
 	private JLabel jblCreditos;
 	private JLabel jlbPrestamo;
 	private JLabel jblGenero;
 	private JLabel jlbAutor;
-	private JMenuItem jmItemSalir;
+	private JTextArea jtaPrestamo;
+	private JTextField jtfTitulo;
+	private JTextField jtfGenero;
+	private JTextField jtfAutor;	
 	private JSeparator jSeparator1;
-	private JMenuBar jMenuBar;
 	private BuscarReg dlgBuscar;
+	private InformeJasperCompleto infCompleto;
+	private static final long serialVersionUID = 1L;
+	private Vector<CDBean> CDs = new Vector<CDBean>();
 
 	/** constructor de clase CD */
 
@@ -192,6 +192,7 @@ public class CD extends javax.swing.JFrame {
 						jmnuInformeCompleto = new JMenuItem();
 						jmnuInformes.add(jmnuInformeCompleto);
 						jmnuInformeCompleto.setText("Informe Completo");
+						
 					}
 					{
 						jmnuSoloPrestado = new JMenuItem();
@@ -268,6 +269,9 @@ public class CD extends javax.swing.JFrame {
 		jtaPrestamo.setText(cd.getPrestamo());
 	}
 
+	public void generaInforme(){
+		
+	}
 	/** 1.- metodo principal */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
