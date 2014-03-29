@@ -3,14 +3,10 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.*;
-
-import programa.CD;
 import programa.CDBean;
 import programa.ConexionDB;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class InformePrestado {
 	

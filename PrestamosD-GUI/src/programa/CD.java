@@ -186,7 +186,7 @@ public class CD extends javax.swing.JFrame {
 						jmnuInformeCompleto.setText("Informe Completo");
 						jmnuInformeCompleto.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								generaInforme(CDs);
+								generaInformeCompleto(CDs);
 							}
 						});
 					}
@@ -195,11 +195,21 @@ public class CD extends javax.swing.JFrame {
 						jmnuInformes.add(jmnuSoloPrestado);
 						jmnuSoloPrestado.setText("Solo prestado");
 						jmnuSoloPrestado.setBounds(113, 19, 90, 20);
+						jmnuSoloPrestado.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								generaInformePrestado(CDs);
+							}
+						});
 					}
 					{
 						jmnuSoloNoPrestados = new JMenuItem();
 						jmnuInformes.add(jmnuSoloNoPrestados);
 						jmnuSoloNoPrestados.setText("Solo No Prestados");
+						jmnuSoloNoPrestados.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								generaInformeExistencias(CDs);
+							}
+						});
 					}
 				}
 			}
@@ -220,10 +230,15 @@ public class CD extends javax.swing.JFrame {
 		this.CDs = item;
 	}
 
-	public void generaInforme(Vector<CDBean> lista) {
-		new InformeJasperCompleto(lista);
-		
-
+	
+	public void generaInformeCompleto(Vector<CDBean> lista) {
+		new InformeJasperCompleto(lista);		
+	}
+	public void generaInformePrestado(Vector<CDBean> lista) {
+		new InformePrestado(lista);		
+	}
+	public void generaInformeExistencias(Vector<CDBean> lista) {
+		new InformeExistencias(lista);		
 	}
 
 	private void jmItemBuscarRegActionPerformed(ActionEvent evt) {
