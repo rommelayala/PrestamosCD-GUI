@@ -26,6 +26,9 @@ public class BuscarReg extends javax.swing.JDialog {
 		jlsListaCDs.setListData(ventanaPadre.getCDs());		
 
 	}
+	public CD getVentanaPadre() {
+		return ventanaPadre;
+	}
 	
 	/**construye la ventana*/
 	private void initGUI() {
@@ -102,10 +105,12 @@ public class BuscarReg extends javax.swing.JDialog {
 		if (i>=0)
 			ventanaPadre.setRegDatos(i);
 	}
+	
 	private void jbtCancelarActionPerformed(ActionEvent evt) {
 		this.setVisible(false);
 		this.dispose();
 	}
+	
 	private void jbtBorrarActionPerformed(ActionEvent evt) {
 		int i=jlsListaCDs.getSelectedIndex();
 		if (i>=0) {

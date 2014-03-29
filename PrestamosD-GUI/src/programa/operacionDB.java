@@ -15,6 +15,7 @@ public class operacionDB extends javax.swing.JFrame {
 	private static String sqlSelect = "SELECT * from discos";
 
 	public static Vector<CDBean> getListaDiscos() {
+		String id;
 		String titulo;
 		String autor;
 		String genero;
@@ -32,6 +33,7 @@ public class operacionDB extends javax.swing.JFrame {
 
 					System.out.println("\nTitulo\tAutor\t\tGenero");
 
+					id=res.getString(1);
 					titulo = res.getString("titulo").toString();
 					autor = res.getString("autor").toString();
 					genero = res.getString("genero").toString();

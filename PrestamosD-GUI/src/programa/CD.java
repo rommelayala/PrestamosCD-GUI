@@ -30,7 +30,6 @@ public class CD extends javax.swing.JFrame {
 	private JTextField jtfAutor;
 	private JSeparator jSeparator1;
 	private BuscarReg dlgBuscar;
-	private InformeJasperCompleto infCompleto;
 	private static final long serialVersionUID = 1L;
 	private Vector<CDBean> CDs = new Vector<CDBean>();
 
@@ -40,18 +39,8 @@ public class CD extends javax.swing.JFrame {
 		super();
 		initGUI();
 	}
-
-	public Vector<CDBean> getCDs() {
-		return CDs;
-	}
-
-	public void setCDs(Vector<CDBean> item) {
-
-		// CDs.add(new CDBean(titulo, autor, genero, descripcion));
-		this.CDs = item;
-	}
-
-	/** Inicia ventana */
+	/**
+	 *  Inicia ventana */
 	private void initGUI() {
 		try {
 			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -197,7 +186,7 @@ public class CD extends javax.swing.JFrame {
 						jmnuInformeCompleto.setText("Informe Completo");
 						jmnuInformeCompleto.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								generaInforme();
+								generaInforme(CDs);
 							}
 						});
 					}
@@ -220,10 +209,20 @@ public class CD extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
 	}
+	/**Metodos **/
+	public Vector<CDBean> getCDs() {
+		return CDs;
+	}
 
-	public void generaInforme() {
-		infCompleto= new InformeJasperCompleto();
-		infCompleto.informe();
+	public void setCDs(Vector<CDBean> item) {
+
+		// CDs.add(new CDBean(titulo, autor, genero, descripcion));
+		this.CDs = item;
+	}
+
+	public void generaInforme(Vector<CDBean> lista) {
+		new InformeJasperCompleto(lista);
+		
 
 	}
 

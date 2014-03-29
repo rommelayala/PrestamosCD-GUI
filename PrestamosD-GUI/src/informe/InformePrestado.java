@@ -12,16 +12,16 @@ import programa.ConexionDB;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
-public class InformeJasperCompleto {
+public class InformePrestado {
 	
-	public InformeJasperCompleto(Vector<CDBean> CDs) {
-		String reportName = "infJasperCompleto";
+	public InformePrestado(Vector<CDBean> CDs) {
+		String reportName = "infJasperPrestado";
 		JasperReport jasperReport;
 		JasperPrint jasperPrint;
 		
 		
 		Map<String, Object> pars = new HashMap<String, Object>();
-	
+		
 		try {
 			// 1-Llenar el datasource con la informacion de la base de datos o
 			
@@ -41,12 +41,12 @@ public class InformeJasperCompleto {
 			
 			// 4-Exportamos el report a pdf y lo guardamos en disco
 			JasperExportManager.exportReportToPdfFile(jasperPrint,
-					"InformeCompleto.pdf");
+					"InformePrestados.pdf");
 
 			System.out.println("Documento generado.");
 			
 			try {
-			     File path = new File ("InformeCompleto.pdf");
+			     File path = new File ("InformePrestados.pdf");
 			     Desktop.getDesktop().open(path);
 			}catch (IOException ex) {
 			     ex.printStackTrace();

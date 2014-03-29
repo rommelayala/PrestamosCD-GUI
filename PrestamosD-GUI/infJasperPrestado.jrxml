@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCompleto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1051e3ec-a0d3-4883-899b-8aa1e76b81ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     discos.`titulo` AS discos_titulo,
+     discos.`autor` AS discos_autor,
+     discos.`genero` AS discos_genero,
+     discos.`estado` AS discos_estado,
+     discos.`id` AS discos_id
+FROM
+     `discos` discos
+WHERE
+     estado = 'prestado']]>
+	</queryString>
+	<field name="discos_id" class="java.lang.Integer"/>
+	<field name="discos_titulo" class="java.lang.String"/>
+	<field name="discos_autor" class="java.lang.String"/>
+	<field name="discos_genero" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="discos_id">
+		<groupExpression><![CDATA[$F{discos_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="155" y="0" width="312" height="62" uuid="aa9d4eee-33d5-4d95-b94f-5f399a507767"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Tienda Discos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="72" width="196" height="22" uuid="4cae27dd-0266-4823-b3c1-f807b1c36bc0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Discos prestados]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="93" width="555" height="1" uuid="de8abbda-00e8-41d7-b208-d1ebf293393e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="597" height="21" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="d3380e84-e8a6-40ca-9984-b47998ea058d"/>
+				<staticText>
+					<reportElement style="Column header" x="412" y="6" width="164" height="15" forecolor="#736343" uuid="4a41434f-bcf0-4755-b63e-c6149359f336"/>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="224" y="5" width="172" height="15" forecolor="#736343" uuid="28086082-54ac-4a3d-a4f1-942014f392c8"/>
+					<text><![CDATA[Autor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="22" y="5" width="35" height="15" forecolor="#736343" uuid="ead9af2e-38c9-4beb-baa2-8032d285dcdf"/>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="68" y="5" width="35" height="15" forecolor="#736343" uuid="4350a4e9-2b32-4edb-b4cf-7b5ea84b706c"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement style="SubTitle" x="47" y="0" width="125" height="20" forecolor="#736343" uuid="d6eba2e9-e3dc-4a81-b66b-2327f947962b"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{discos_titulo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="36" height="20" backcolor="#736343" uuid="59fc5d77-378c-4490-b295-8988401d28fc"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" stretchType="RelativeToBandHeight" x="1" y="0" width="35" height="20" forecolor="#FFFFFF" uuid="bcfee809-1557-4079-94c1-54b91668c721"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{discos_id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="203" y="0" width="160" height="15" uuid="8e495ca8-2091-4447-9efc-49dee3a22b8c"/>
+				<textFieldExpression><![CDATA[$F{discos_autor}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="391" y="0" width="161" height="15" uuid="38abfb67-36c1-4c5b-af7e-c82de93063de"/>
+				<textFieldExpression><![CDATA[$F{discos_genero}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="517de15a-ee27-4d44-ad37-f1e39a75cacc"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="96e6d867-4fa0-4d7d-b44e-cf9c3205598c"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="6692c952-3048-4c64-81f8-aafbef4e3ee1"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="63b376cf-6857-49f2-9ae9-2308d9f49b70"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="b498c9a8-15df-4286-8371-90510a228325"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
