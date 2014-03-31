@@ -114,14 +114,16 @@ public class BuscarReg extends javax.swing.JDialog {
 	private void jbtBorrarActionPerformed(ActionEvent evt) {
 		int i=jlsListaCDs.getSelectedIndex();
 		if (i>=0) {
-			ventanaPadre.getCDs().remove(i);
-			
+			int dato=ventanaPadre.getCDs().get(i).id;
+			ventanaPadre.getCDs().remove(i);		
 			this.actualizarLista();
+			
+			operacionDB.eliminaFila(dato);
 		}
 	}
 	/**
 	* ejecutar desde la clase CD!!!
-	*/
+	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -130,6 +132,6 @@ public class BuscarReg extends javax.swing.JDialog {
 				inst.setVisible(true);
 			}
 		});
-	}
+	}*/
 
 }

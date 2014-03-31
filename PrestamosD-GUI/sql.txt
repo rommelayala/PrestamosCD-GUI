@@ -1,0 +1,71 @@
+DROP TABLE `discos`;
+
+CREATE TABLE `discos` (
+  `id` mediumint(8) unsigned NOT NULL auto_increment,
+  `titulo` varchar(255),
+  `autor` varchar(255) default NULL,
+  `genero` varchar(100) default NULL,
+  `estado` varchar(10),
+	`prestamo` varchar(250),
+  PRIMARY KEY (`id`)
+) AUTO_INCREMENT=1;
+
+-- alter table discos add column devuelto varchar(30) default NULL; 
+
+
+INSERT INTO discos(titulo,autor,genero) values('Youre Not Sorry','Taylor Swift','country');
+INSERT INTO discos(titulo,autor,genero) values('Mean','Taylor Swift','country');
+INSERT INTO discos(titulo,autor,genero) values('Never Grow Up','Taylor Swift','country');
+INSERT INTO discos(titulo,autor,genero) values('Tim Mcgraw','Taylor Swift','country');
+INSERT INTO discos(titulo,autor,genero) values('Halo','Tim Mcgraw','country');
+INSERT INTO discos(titulo,autor,genero) values('The One','Tim Mcgraw','country');
+INSERT INTO discos(titulo,autor,genero) values('Better Than I Used To Be','Tim Mcgraw','country');
+INSERT INTO discos(titulo,autor,genero) values('Enchanted','Taylor Swift','country');
+INSERT INTO discos(titulo,autor,genero) values('Hey Now','Tim Mcgraw','country');
+INSERT INTO discos(titulo,autor,genero) values('The One That Got Away','Tim Mcgraw','country');
+INSERT INTO discos(titulo,autor,genero) values('Wrecking Ball','Terri Clark','country');
+INSERT INTO discos(titulo,autor,genero) values('The One','Terri Clark','country');
+INSERT INTO discos(titulo,autor,genero) values('Beautiful And Broken','Terri Clark','country');
+INSERT INTO discos(titulo,autor,genero) values('The Good Was Great','Terri Clark','country' );
+INSERT INTO discos(titulo,autor,genero) values('Is This Love','Bob Marley','reggae');
+INSERT INTO discos(titulo,autor,genero) values('One Love','Bob Marley','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Bad Boys','Bob Marley','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Dont Worry Be Happy','Bob Marley','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('No Woman No Cry','Bob Marley','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('Is This Love','Bob Marley','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Kingston Town','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Red Red Wine','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Baby I Love Your Way','Ub40','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('Cant Help Falling In Love With You','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Baby','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Way You Do The Things You Do','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Homely Girl','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Higher Ground','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Rat In My Kitchen','Ub40','reggae');
+INSERT INTO discos(titulo,autor,genero) values('Please Dont Make Me Cry','Ub40','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('I Got You Babe','Ub40','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('Una Sola Voz','Macaco ','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('Caminare','Macaco','reggae' );
+INSERT INTO discos(titulo,autor,genero) values('Con la mano levantada','Macaco','reggae');
+INSERT INTO discos(titulo,autor,genero,estado) values('Love Is The Only Way','Macaco','reggae','prestado' );
+INSERT INTO discos(titulo,autor,genero,estado) values('Lagrimas secas','Macaco','reggae','prestado' );
+INSERT INTO discos(titulo,autor,genero,estado) values('Macaco','Quema','reggae','prestado');
+INSERT INTO discos(titulo,autor,genero,estado) values('Michelle','The Beatles','Rock','prestado');
+INSERT INTO discos(titulo,autor,genero,estado) values('Crazy','Aerosmith','Rock','prestado');
+INSERT INTO discos(titulo,autor,genero,estado) values('Dont cry','Guns and Roses','Rock','prestado');
+INSERT INTO discos(titulo,autor,genero,estado) values('Como Yo Nadie Te Amado','Bon Jovi','Rock','prestado');
+INSERT INTO discos(titulo,autor,genero,estado) values('Come As You Are','Nirvana','Rock','prestado');
+INSERT INTO discos(titulo,autor,genero,estado) values('Nothing Else Matters (live)','Metallica','Rock','prestado' );
+INSERT INTO discos(titulo,autor,genero,estado) values('We Will Rock You','Queen','Rock','prestado');
+
+select * from discos;
+
+select * from discos where estado like 'prestado';
+
+select * from discos where estado is null;
+
+INSERT INTO discos(titulo,autor,genero) values('Is This','','reggae');
+
+SET SQL_SAFE_UPDATES=0;
+
+delete from discos where titulo = 'Is This';

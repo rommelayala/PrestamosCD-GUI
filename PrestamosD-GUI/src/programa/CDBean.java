@@ -1,16 +1,25 @@
 package programa;
 public class CDBean implements Comparable<Object> {
 
+	int id;
 	String titulo, autor, genero, prestamo;
 
-	public CDBean(String titulo, String autor, String genero, String prestamo) {
+	public CDBean( int id,String titulo, String autor, String genero) {
 		super();
+		this.id=id;/*1 añado id*/
 		this.titulo = titulo;
 		this.autor = autor;
 		this.genero = genero;
-		this.prestamo = prestamo;
+	}
+	/*2 añado id */
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	/*fmod*/
 	public String getTitulo() {
 		return titulo;
 	}

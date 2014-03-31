@@ -10,19 +10,19 @@ public class operacionDB extends javax.swing.JFrame {
 	static ResultSet res = null;
 	static Statement sentenciaSQL;
 	static ResultSetMetaData infoTabla = null;
-	private static Vector<CDBean> lista = new Vector<>(110);
-	private static final long serialVersionUID = 1L;		
+	private static final long serialVersionUID = 1L;
+	private static Vector<CDBean> lista = new Vector<>(110);		
 	private static String sqlSelect = "SELECT * from discos";
-
+	
+	/**Metodo devuelve un vector con la lista de discos**/
 	public static Vector<CDBean> getListaDiscos() {
-		String id;
+		int id;/*4 añado id */
 		String titulo;
 		String autor;
 		String genero;
-		String descripcion;
 
-		/**crea el resulset a partir de la consulta sqlselect
-		 * muestra por consola el contenido del resulset y llena el vector con esos datos*/
+/*crea el resulset a partir de la consulta sqlselect
+* muestra por consola el contenido del resulset y llena el vector con esos datos*/
 		try {
 			sentenciaSQL = ConexionDB.getConexion().createStatement();
 			res = sentenciaSQL.executeQuery(sqlSelect);
@@ -33,17 +33,16 @@ public class operacionDB extends javax.swing.JFrame {
 
 					System.out.println("\nTitulo\tAutor\t\tGenero");
 
-					id=res.getString(1);
+					id=res.getInt("id");
 					titulo = res.getString("titulo").toString();
 					autor = res.getString("autor").toString();
 					genero = res.getString("genero").toString();
-					descripcion = "";
 					System.out.println(titulo + "\t" + autor
 							+ "\t" + genero);
 					System.out.println("-----------------------");
 					// genera disco
 
-					lista.add(new CDBean(titulo, autor, genero, descripcion));
+					lista.add(new CDBean(id,titulo, autor, genero));/*3 añado id */
 					}
 				} catch (SQLException e1) {
 				e1.printStackTrace();
@@ -53,15 +52,13 @@ public class operacionDB extends javax.swing.JFrame {
 			}
 		return lista;
 		}
-			
-	/**codigo para uso futuro:
-	 *  3 obtiene nuevo Id de la tabla libros */
-	private static int getNumeroElementos(String tabla, String ID) {
+	/**devuelve un id valido para insertar nuevo elemento*/
+	public static int ultimoId() {
 		Integer id = null;
 
 		try {
 			res.last();
-			id = res.getInt(ID);
+			id = res.getInt(1);
 
 			System.out.println("\nEl ultimo elemento es ->" + id);
 
@@ -71,37 +68,38 @@ public class operacionDB extends javax.swing.JFrame {
 		}
 		return id;
 	}
-
-	/* 4 permite insertar o actualizar la tabla por medio de un String orden */
-	private static int grabarFila(String orden) {
+	
+	/**inserta nuevo elemento a la tabla
+	 *anyade a la bd  con este formato 
+	 *INSERT INTO discos(titulo,autor,genero,descripcion) values('One Love','Bob Marley','reggae','');*/
+	public static int grabarFila(String datos) {
 		int filas = -1;
-
+		
+		String orden="INSERT INTO discos(titulo,autor,genero,prestamo) values("+datos+");";
 		try {
 			filas = sentenciaSQL.executeUpdate(orden);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("no se ha grabado nada");
 			e.printStackTrace();
 		}
 		return filas;
 	}
+	public static int eliminaFila(int datos) {
+		int filas = -1;
+		String orden="DELETE FROM discos WHERE id = "+datos+";";
+		try {
+			filas = sentenciaSQL.executeUpdate(orden);
+		} catch (SQLException e) {
+			System.out.println("no se ha grabado nada");
+			e.printStackTrace();
+		}
+		return filas;
+	}
+}
+	
+/**codigo para uso futuro:
 
 	public static void main(String[] args) {
-
-		/**
-		 * 1 Lanza consulta, devuele un resulset, obtiene y guarda informacion
-		 * del resultset
-		 */
-		// res = lanzarSelect(sqlSelect+"discos;");
-
-		/** 2 muestra el contenido del resulset obtenido */
-		// mostrarSelect(res);
-
-		/**
-		 * 3 obtiene nuevo Id de la tabla libros int
-		 * nuevoId=getNuevoID("libros", "codigoLibro");
-		 * 
-		 * System.out.println("El nuevo ID del libro es "+nuevoId); -fin de 3
-		 */
 
 		/**
 		 * 4 permite insertar o actualizar la tabla por medio de un String orden
@@ -144,5 +142,3 @@ public class operacionDB extends javax.swing.JFrame {
 		 * (filasAfectadas1+" Fila(s) afectadas actualizando fecha de libro");
 		 * -fin de 6
 		 */
-	}
-}

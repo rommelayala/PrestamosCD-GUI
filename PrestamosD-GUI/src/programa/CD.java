@@ -43,6 +43,7 @@ public class CD extends javax.swing.JFrame {
 	 *  Inicia ventana */
 	private void initGUI() {
 		try {
+			/**propiedades de ventana*/
 			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 			getContentPane().setLayout(null);
 			pack();
@@ -54,6 +55,7 @@ public class CD extends javax.swing.JFrame {
 					salirForm();
 				}
 			});
+			/*componentes de ventana*/
 			{
 				jlbTitulo = new JLabel();
 				getContentPane().add(jlbTitulo);
@@ -127,6 +129,7 @@ public class CD extends javax.swing.JFrame {
 					}
 				});
 			}
+			/**menu de la ventana*/
 			{
 				jMenuBar = new JMenuBar();
 				setJMenuBar(jMenuBar);
@@ -265,7 +268,7 @@ public class CD extends javax.swing.JFrame {
 	}
 
 	private void jmItemAnadirRegActionPerformed(ActionEvent evt) {
-		String titulo = null, autor = null, genero = null, descripcion = null;
+		String titulo = null, autor = null, genero = null, prestamo = null;
 
 		titulo = jtfTitulo.getText().toString();
 
@@ -275,13 +278,17 @@ public class CD extends javax.swing.JFrame {
 					"El campo titulo no puede estar vacio");
 			return;
 		}
-
+		int id=operacionDB.ultimoId();
 		autor = jtfAutor.getText().toString();
 		genero = jtfGenero.getText().toString();
-		descripcion = jtaPrestamo.getText().toString();
-
-		CDs.add(new CDBean(titulo, autor, genero, descripcion));
+		prestamo = jtaPrestamo.getText().toString();
+		/*anyade al vector*/
+		CDs.add(new CDBean(id,titulo, autor, genero));
 		Collections.sort(CDs);
+		/*construye datos para el 
+		 * INSERT INTO discos(titulo,autor,genero,descripcion) values('One Love','Bob Marley','reggae','');*/
+		String datos="'"+titulo+"','"+autor+"','"+genero+"','"+prestamo+"'";
+		operacionDB.grabarFila(datos);
 
 		if (dlgBuscar != null && dlgBuscar.isVisible())
 			dlgBuscar.actualizarLista();

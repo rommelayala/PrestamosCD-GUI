@@ -30,7 +30,7 @@ public class ConexionDB {
 				// Obtenemos la conexion
 				conDB = DriverManager.getConnection(DBUrl);
 			} catch (SQLException sqle) {
-				System.out.println("SQLException: " + sqle.getMessage());
+				System.out.println("No se ha podido conectar a la base de datos\nSQLException: " + sqle.getMessage());
 				System.out.println("SQLState: " + sqle.getSQLState());
 				System.out.println("VendorError: " + sqle.getErrorCode());
 			}
